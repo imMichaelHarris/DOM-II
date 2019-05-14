@@ -7,11 +7,14 @@ const busImage = document.querySelector('.home .intro img');
 const buttons = document.querySelectorAll('.btn');
 const h2 = document.querySelectorAll('h2');
 const allImages = document.querySelectorAll('img');
+const destinations = document.querySelectorAll('.destination');
 let lastScrollTop = 0;
 let startWidth = 0;
 
+//mousemove
 funBus.addEventListener('mousemove', () => funBus.style.transform = 'scale(1.2) rotate(-8deg)');
 
+//keydown
 document.addEventListener('keydown', (event) => event.key === 'ArrowLeft' ? nav.style.transform = "translateX(-20px)" : nav.style.transform = "translateX(20px)")
 
 //Scroll
@@ -27,8 +30,6 @@ document.addEventListener('scroll', (event) => {
 
 //wheel
 window.addEventListener('wheel', (event) => {
-    console.log(event);
-    console.log(window.pageYOffset);
     if(window.pageYOffset > 500){
         funBus.style.fontSize = '4rem';
 
@@ -47,9 +48,15 @@ window.addEventListener('load', () => {
     busImage.style.transform = 'translateY(0)';
 });
 
-//Focus
-buttons.forEach(element => element.addEventListener('focus', (event) => {
-    console.log(event)
+//stop
+buttons.forEach(element => element.addEventListener('click', (event) => {
+    event.stopPropagation();
+    console.log('button clicked');
+}))
+destinations.forEach(element => element.addEventListener('click', (event) => {
+    const button = element.querySelector('.btn');
+    button.style.background = 'blue';
+    console.log('destination clicked')
 }))
 
 //resize
@@ -78,12 +85,7 @@ allImages.forEach(img => img.addEventListener('dragend', () => {
     img.style.border = 'none';
 }))
 
-//stop 
-allImages.forEach(img => img.addEventListener('mouseenter', () => {
-    console.log('enter');
-}))
-
 //transition end
 busImage.addEventListener('transitionend', () => {
-    navLinks.style.color = 'red';
+    funBus.style.color = 'red';
 })
