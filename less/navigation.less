@@ -2,8 +2,9 @@
   width: 100%;
   height: 90px;
   background: @main-bg;
-  border-bottom: 2px dashed @navigation-border;
+  border-bottom: 2px dashed @main-bg;
   position: fixed;
+  z-index: 20;
 
   .nav-container {
     height: 100%;
@@ -18,6 +19,7 @@
     }
 
     .logo-heading {
+      transition: all .3s ease-in-out;
       @media @mobile {
         font-size: 3rem;
       }

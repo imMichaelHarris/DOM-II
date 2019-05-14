@@ -178,8 +178,9 @@ img {
   width: 100%;
   height: 90px;
   background: #FFFFFF;
-  border-bottom: 2px dashed #C0C0C0;
+  border-bottom: 2px dashed #FFFFFF;
   position: fixed;
+  z-index: 20;
 }
 .main-navigation .nav-container {
   height: 100%;
@@ -193,6 +194,9 @@ img {
     justify-content: center;
     padding-top: 10px;
   }
+}
+.main-navigation .nav-container .logo-heading {
+  transition: all 0.3s ease-in-out;
 }
 @media (max-width: 500px) {
   .main-navigation .nav-container .logo-heading {
@@ -233,6 +237,8 @@ img {
 .home .intro img {
   max-width: 100%;
   height: auto;
+  transform: translateY(-300px);
+  transition: all 1s ease-in-out;
 }
 .home .intro h2 {
   margin-top: 20px;
