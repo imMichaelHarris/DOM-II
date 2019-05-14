@@ -195,6 +195,9 @@ img {
     padding-top: 10px;
   }
 }
+.main-navigation .nav-container .logo-heading {
+  transition: all 0.3s ease-in-out;
+}
 @media (max-width: 500px) {
   .main-navigation .nav-container .logo-heading {
     font-size: 3rem;

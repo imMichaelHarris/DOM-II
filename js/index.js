@@ -15,7 +15,7 @@ funBus.addEventListener('mousemove', () => funBus.style.transform = 'scale(1.2) 
 document.addEventListener('keydown', (event) => event.key === 'ArrowLeft' ? nav.style.transform = "translateX(-20px)" : nav.style.transform = "translateX(20px)")
 
 //Scroll
-document.addEventListener('scroll', () => {
+document.addEventListener('scroll', (event) => {
     let st = window.pageYOffset || document.documentElement.scrollTop;
     //console.log(st);
     if (st > lastScrollTop){
@@ -25,7 +25,19 @@ document.addEventListener('scroll', () => {
     }
 })
 
-//
+//wheel
+window.addEventListener('wheel', (event) => {
+    console.log(event);
+    console.log(window.pageYOffset);
+    if(window.pageYOffset > 500){
+        funBus.style.fontSize = '4rem';
+
+    } else {
+        funBus.style.fontSize = `${window.pageYOffset / 4}px`;
+    }
+})
+
+//prevent default
 navLinks.forEach(element => element.addEventListener('click', (event) => {
     event.preventDefault();
 }));
@@ -65,3 +77,13 @@ allImages.forEach(img => img.addEventListener('drag', () => {
 allImages.forEach(img => img.addEventListener('dragend', () => {
     img.style.border = 'none';
 }))
+
+//stop 
+allImages.forEach(img => img.addEventListener('mouseenter', () => {
+    console.log('enter');
+}))
+
+//transition end
+busImage.addEventListener('transitionend', () => {
+    navLinks.style.color = 'red';
+})
