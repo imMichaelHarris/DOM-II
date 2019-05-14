@@ -233,6 +233,8 @@ img {
 .home .intro img {
   max-width: 100%;
   height: auto;
+  transform: translateY(-300px);
+  transition: all 1s ease-in-out;
 }
 .home .intro h2 {
   margin-top: 20px;
